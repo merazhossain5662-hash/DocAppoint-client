@@ -8,7 +8,6 @@ import ViewBtn from './ViewBtn';
 
 const TopDocs = async() => {
     const docs = await GetAllData();
-    console.log(docs);
     
  const topDocsData=docs.slice(1,4);
 
@@ -18,9 +17,7 @@ const TopDocs = async() => {
             <p className='mb-2 text-center text-lg font-semibold text-gray-500'>Highly reviewed specialists ready to see you.</p>
               <div className='grid lg:grid-cols-3 my-7  md:grid-cols-2 grid-cols-1 gap-4 lg:px-15'>
                 {
-                    topDocsData.map((data)=>{
-                        console.log(data);
-                        
+                    topDocsData.map((data)=>{                        
                       return <div key={data.id} className='rounded-3xl max-w-100 hover:shadow-2xl  shadow-[#013d20]'>
                       <div className="card transition-transform duration-400 ease-in-out hover:scale-103 h-140  bg-base-200  border-[#016133] border-b border-l  p-1">
   <figure className='transition-transform duration-400 ease-in-out hover:scale-97 '>
