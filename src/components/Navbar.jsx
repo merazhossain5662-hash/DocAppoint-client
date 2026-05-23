@@ -37,8 +37,9 @@ const Navbar = () => {
     <li> <Navlink href={"/dashboard"}>Dashboard</Navlink></li>
     </ul>
   </div>
-  <div className="navbar-end">
-    <a className="btn border-none bg-gradient-to-r from-[#0D530E] text-white rounded-2xl  to-[#328E6E]">Button</a>
+  <div className="navbar-end gap-2">
+    <Link href={"/"}>Login</Link>
+    <Link href={"/"} className="btn border-none bg-gradient-to-r from-[#0D530E] text-white rounded-2xl  to-[#328E6E]">Register</Link>
   </div>
 </div>
     );
