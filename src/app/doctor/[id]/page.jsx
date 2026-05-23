@@ -1,3 +1,4 @@
+import BookBtn from '@/components/BookBtn';
 import Image from 'next/image';
 import React from 'react';
 import { BsHospital } from 'react-icons/bs';
@@ -85,7 +86,7 @@ const DetailsPage = async({params}) => {
                 }
                </div>
 
-               <button className='btn mt-4 px-3.5 bg-linear-to-r from-[#0D530E] text-white rounded-md text-lg py-3  to-[#328E6E] border-none'>Book Appointment</button>
+              <BookBtn data={data}></BookBtn>
             </section>
         </div>
     );

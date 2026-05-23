@@ -40,7 +40,7 @@ const AllAppointment = () => {
       <path d="m21 21-4.3-4.3"></path>
     </g>
   </svg>
-  <input type="search" required placeholder="Search by doctor name or specialty..." {...register("value")} />
+  <input type="search" className='' required placeholder="Search by doctor name or specialty..." {...register("value")} />
 </label>
             </form>
            </div>
