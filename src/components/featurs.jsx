@@ -5,6 +5,7 @@ import { GrRadialSelected } from 'react-icons/gr';
 import { FaUserDoctor } from 'react-icons/fa6';
 import { LuHandHeart } from 'react-icons/lu';
 import { FaUserClock } from 'react-icons/fa';
+import { TbClock24 } from 'react-icons/tb';
 
 const Featurs = () => {
     return (
@@ -24,7 +25,7 @@ const Featurs = () => {
                              </div>
                                <div className='flex items-center gap-2.5'>
                               <div className='p-2 rounded-full bg-[#dff3ea]'>
-                                <FaUserClock className='text-xl text-[#0D530E]'/>
+                                <TbClock24 className='text-xl text-[#0D530E]'/>
                               </div>
                               <div>
                                 <h1 className='text-xl font-semibold' >24/7</h1>
