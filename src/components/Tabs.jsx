@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Appoinments from './appoinments';
 import { authClient } from '@/lib/auth-client';
+import Profile from './Profile';
 
 const Tabs = ({user, data}) => {
     const [active, setActive] = useState("My Bookings");
@@ -17,9 +18,7 @@ const Tabs = ({user, data}) => {
      <div>
         {
             active === "My Bookings" ? <Appoinments datas={data}></Appoinments>
-            :  active === "My Profile" && <div>
-               4514251584451
-            </div>
+            :  active === "My Profile" && <Profile user={user}></Profile>
         }
      </div>
 
