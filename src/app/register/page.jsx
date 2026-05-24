@@ -4,8 +4,14 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { FaGoogle } from 'react-icons/fa';
 
 const RegisterPage = () => {
+    const handleGoogleSingin= async()=>{
+       const data = await authClient.signIn.social({
+        provider: "google",
+      });
+     }
          
       const handleRegisterSubmit = async(datal)=>{
        const {name, email, password, photo} = datal
@@ -60,7 +66,7 @@ const RegisterPage = () => {
   <button type='submit' className="btn btn-neutral rounded-2xl text-xl mt-4">Register</button>
    <div className="divider">OR</div>
    <p className=' font-light text-sm'>Already Have An Account ? <Link href={"/login"} className=' text-[#1c7474] font-medium hover:underline'>Login</Link></p>  
-{/* <button onClick={handleGoogleSingin} className="btn text-[#0a627c] btn-outline items-center gap-2 w-full rounded-2xl text-lg py-4 font-semibold mt-4"><FaGoogle /> Continue with Google</button> */}
+<button onClick={handleGoogleSingin} className="btn text-[#0a627c] btn-outline items-center gap-2 w-full rounded-2xl text-lg py-4 font-semibold mt-4"><FaGoogle /> Continue with Google</button>
 </fieldset>
            </form>
         </div>

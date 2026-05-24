@@ -1,10 +1,14 @@
 "use client"
+import { authClient } from '@/lib/auth-client';
 import React from 'react';
 import { CgGenderMale } from 'react-icons/cg';
 import { FcCancel } from 'react-icons/fc';
 import { MdCancel } from 'react-icons/md';
 
 const BookBtn = ({data}) => {
+  const { data: session } = authClient.useSession();
+   const user =session?.user;
+    console.log(user);
     return (
         <div>
              <button  onClick={()=>document.getElementById('my_modal_3').showModal()} className='btn mt-4 px-3.5 bg-linear-to-r from-[#0D530E] text-white rounded-md text-lg py-3  to-[#328E6E] border-none'>Book Appointment</button>
@@ -20,7 +24,7 @@ const BookBtn = ({data}) => {
     </div>
    <fieldset className="fieldset">
   <legend className="fieldset-legend">User Email</legend>
-  <input type="text" className="input w-full bg-base-300 rounded-4xl" value="wjdjw" readOnly />
+  <input type="text" className="input w-full bg-base-300 rounded-4xl" value={user?.email} readOnly />
 </fieldset>
    <fieldset className="fieldset">
   <legend className="fieldset-legend">Doctor Name</legend>

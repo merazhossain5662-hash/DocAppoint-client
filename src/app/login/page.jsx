@@ -36,11 +36,11 @@ const loginPage = () => {
  }
 }
 
-// const handleGoogleSingin= async()=>{
-//    const data = await authClient.signIn.social({
-//     provider: "google",
-//   });
-//  }
+const handleGoogleSingin= async()=>{
+   const data = await authClient.signIn.social({
+    provider: "google",
+  });
+ }
     return (
         <div className=' bg-[#f4f9fd]'>
            
@@ -69,7 +69,7 @@ Discover new reads, save your favorites, and manage your reading journey—all i
         <div className="divider">OR</div>
      
         </fieldset>
-        {/* <button onClick={handleGoogleSingin} className="btn text-[#0a627c] btn-outline items-center gap-2 w-full rounded-2xl text-lg py-4 font-semibold mt-4"><FaGoogle /> Login with Google</button> */}
+        <button onClick={handleGoogleSingin} className="btn text-[#0a627c] btn-outline items-center gap-2 w-full rounded-2xl text-lg py-4 font-semibold mt-4"><FaGoogle /> Login with Google</button>
       <div className='border-t border-gray-300'>
       </div>
        </form>
