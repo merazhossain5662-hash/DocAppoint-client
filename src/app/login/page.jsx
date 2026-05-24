@@ -1,4 +1,5 @@
 "use client"
+import { authClient } from '@/lib/auth-client';
 // import { authClient } from '@/lib/auth-client';
 import Link from 'next/link';
 import React from 'react';
@@ -18,38 +19,21 @@ const loginPage = () => {
 
   const handleLoginSubmit =async (datal)=>{
     const {email, password}=datal
-// const { data, error } = await authClient.signIn.email({
-//     email: email, // required
-//     password: password, // required
-//     rememberMe: true,
-//     callbackURL: "/",
-// }); 
-// if(error){
-// toast.error(error.message, {
-// position: "top-center",
-// autoClose: 5000,
-// hideProgressBar: false,
-// closeOnClick: false,
-// pauseOnHover: true,
-// draggable: true,
-// progress: undefined,
-// theme: "dark",
-// transition: Zoom,
-// });
-// }else{
-//     toast.success('Login Successfull!', {
-//     position: "top-center",
-//     autoClose: 5000,
-//     hideProgressBar: false,
-//     closeOnClick: false,
-//     pauseOnHover: true,
-//     draggable: true,
-//     progress: undefined,
-//     theme: "dark",
-//     transition: Zoom,
-//     });
+        
+   const { data, error } = await authClient.signIn.email({
+    email: email, // required
+    password: password, // required
+    rememberMe: true,
+    callbackURL: "/",
+});
 
-// }
+
+ if(error){
+ alert(error.message)
+ }else if(data){
+      alert("succecfull");
+      redirect("/")
+ }
 }
 
 // const handleGoogleSingin= async()=>{
