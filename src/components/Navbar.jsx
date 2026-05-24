@@ -10,9 +10,10 @@ import { IoLogOutOutline } from 'react-icons/io5';
 
 const Navbar = () => {
   
-const { data: session } = authClient.useSession();
+const { data: session, isPending } = authClient.useSession();
  const user =session?.user;
-  console.log(user);
+ 
+  
   
 
     return (
@@ -47,7 +48,10 @@ const { data: session } = authClient.useSession();
   </div>
   <div className="navbar-end gap-2">
    {
-         user ? <div className='flex items-center gap-2'>
+        isPending ? <div>
+          <span className="loading loading-infinity loading-xl text-success"></span>
+        </div>
+        : user ? <div className='flex items-center gap-2'>
           <div className="avatar">
   <div className="ring-emerald-800 ring-offset-base-100 w-9 rounded-full ring ring-offset-2">
      <Image src={user?.image || user?.name.charAt(0)} width={100} height={100}  alt={user?.name}></Image>

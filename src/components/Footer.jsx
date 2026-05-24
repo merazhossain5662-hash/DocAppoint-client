@@ -6,7 +6,7 @@ import { SiWorldhealthorganization } from 'react-icons/si';
 
 const Footer = () => {
     return (
-        <div className=''>
+        <div className='mt-20'>
          <footer className="footer sm:justify-center md:justify-around sm:footer-horizontal bg-[#033103] py-9 text-white lg:px-15">
 <nav>
     <span className='flex gap-1  items-center' href={"/"}><span className='text-3xl'><SiWorldhealthorganization /></span><h1 className='text-2xl font-semibold'>DocAppoint</h1></span>
