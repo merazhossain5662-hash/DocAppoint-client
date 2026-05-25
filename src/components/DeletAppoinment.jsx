@@ -4,6 +4,8 @@ import React from 'react';
 import { FaRegTrashAlt } from 'react-icons/fa';
 
 const DeletAppoinment = ({data}) => {
+  console.log(data._id);
+  
       const router =useRouter()
     const handleDelete =async()=>{
        const res = await fetch(`http://localhost:5000/appoinments/${data._id}`,{

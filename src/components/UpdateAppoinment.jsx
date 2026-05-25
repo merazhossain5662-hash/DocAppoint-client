@@ -6,6 +6,7 @@ import { MdCancel } from 'react-icons/md';
 import { TfiPencilAlt } from 'react-icons/tfi';
 
 const UpdateAppoinment = ({data}) => {
+     const modalId = `my_modal_${data._id}`    
     const router =useRouter()
        const {
                        register,
@@ -22,13 +23,13 @@ const UpdateAppoinment = ({data}) => {
             },
             body: JSON.stringify(datal)
           })
-          document.getElementById('my_modal_3').close();
+          document.getElementById(modalId).close();
            router.refresh()
                        }
     return (
        <div>
-          <button onClick={()=>document.getElementById('my_modal_3').showModal()} className='btn bg-[#e6fdf3] dark:bg-base-300 btn-sm rounded-xl'><TfiPencilAlt />Update</button>
-          <dialog id="my_modal_3" className="modal">
+          <button onClick={()=>document.getElementById(modalId).showModal()} className='btn bg-[#e6fdf3] dark:bg-base-300 btn-sm rounded-xl'><TfiPencilAlt />Update</button>
+          <dialog id={modalId} className="modal">
             <div className="modal-box">
               <form method="dialog">
                 {/* if there is a button in form, it will close the modal */}
