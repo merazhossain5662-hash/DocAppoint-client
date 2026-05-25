@@ -7,6 +7,13 @@ import { useForm } from 'react-hook-form';
 import { FaGoogle } from 'react-icons/fa';
 
 const RegisterPage = () => {
+   const {
+             register,
+             handleSubmit,
+             watch,
+             formState: { errors },
+           } = useForm()
+           
     const handleGoogleSingin= async()=>{
        const data = await authClient.signIn.social({
         provider: "google",
@@ -30,12 +37,7 @@ const RegisterPage = () => {
       redirect("/login")
  }
       }
-      const {
-             register,
-             handleSubmit,
-             watch,
-             formState: { errors },
-           } = useForm()
+     
     return (
         <div className=' bg-[#f4f9fd] py-14'>
            <form onSubmit={handleSubmit(handleRegisterSubmit)}>
