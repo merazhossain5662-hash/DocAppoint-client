@@ -2,12 +2,23 @@ import React from 'react';
 import { FaArrowRight, FaRegClock, FaStar } from 'react-icons/fa';
 import Image from 'next/image';
 import Link from 'next/link';
-import GetAllData from '@/lib/GetAllData';
 import { IoLocationOutline } from 'react-icons/io5';
 import ViewBtn from './ViewBtn';
+import { auth } from '@/lib/auth';
+import { headers } from 'next/headers';
 
 const TopDocs = async() => {
-    const docs = await GetAllData();
+  const {token} = await auth.api.getToken({
+          headers: await headers() 
+      });
+    const res = await fetch("http://localhost:5000/allDoctors",
+      {
+              headers : {
+                  authorization : `Bearer ${token}`,
+              }
+          }
+    )
+               const docs = await res.json()
     
  const topDocsData=docs.slice(1,4);
 

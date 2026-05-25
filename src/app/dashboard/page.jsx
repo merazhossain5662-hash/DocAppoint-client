@@ -7,9 +7,18 @@ const DashboardPage = async() => {
       const session = await auth.api.getSession({
         headers: await headers() 
     });
+      const {token} = await auth.api.getToken({
+        headers: await headers() 
+    });
+    
 
     const user = session?.user
-    const res= await fetch(`http://localhost:5000/appoinments/${user?.email}`);
+    const res= await fetch(`http://localhost:5000/appoinments/${user?.email}`,{
+        headers : {
+            authorization : `Bearer ${token}`,
+        }
+    }
+    );
     const data = await res.json();
     return (
         <div className='py-10 space-y-4 dark:bg-base-200 bg-[#f6fdfa]'>

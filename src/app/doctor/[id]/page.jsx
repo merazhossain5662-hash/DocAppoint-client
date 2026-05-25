@@ -1,4 +1,6 @@
 import BookBtn from '@/components/BookBtn';
+import { auth } from '@/lib/auth';
+import { headers } from 'next/headers';
 import Image from 'next/image';
 import React from 'react';
 import { BsHospital } from 'react-icons/bs';
@@ -8,9 +10,18 @@ import { LuClock3 } from 'react-icons/lu';
 import { RiEmotionHappyFill } from 'react-icons/ri';
 
 const DetailsPage = async({params}) => {
+     const {token} = await auth.api.getToken({
+            headers: await headers() 
+        });
   const {id} = await params; 
   
-  const res = await fetch(`http://localhost:5000/allDoctors/${id}`)
+  const res = await fetch(`http://localhost:5000/allDoctors/${id}`,
+    {
+            headers : {
+                authorization : `Bearer ${token}`,
+            }
+        }
+  )
   const data = await res.json();
      
         

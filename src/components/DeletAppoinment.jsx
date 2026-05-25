@@ -1,4 +1,5 @@
 "use client"
+import { authClient } from '@/lib/auth-client';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 import { FaRegTrashAlt } from 'react-icons/fa';
@@ -8,10 +9,12 @@ const DeletAppoinment = ({data}) => {
   
       const router =useRouter()
     const handleDelete =async()=>{
+       const {data: tokenData} = await authClient.token()
        const res = await fetch(`http://localhost:5000/appoinments/${data._id}`,{
             method: "DELETE",
             headers: {
-              'content-type' : 'application/json'
+              'content-type' : 'application/json',
+              authorization : `Bearer ${tokenData?.token}`,
             }
     });
     document.getElementById('my_modal_1').close();

@@ -1,4 +1,5 @@
 "use client"
+import { authClient } from '@/lib/auth-client';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 import { useForm } from 'react-hook-form';
@@ -16,10 +17,12 @@ const UpdateAppoinment = ({data}) => {
                      } = useForm()  
 
                        const onSubmit =async(datal)=>{
+                         const {data: tokenData} = await authClient.token()
                            const res = await fetch(`http://localhost:5000/appoinments/${data._id}`,{
             method: "PATCH",
             headers: {
-              'content-type' : 'application/json'
+              'content-type' : 'application/json',
+                 authorization : `Bearer ${tokenData?.token}`,
             },
             body: JSON.stringify(datal)
           })

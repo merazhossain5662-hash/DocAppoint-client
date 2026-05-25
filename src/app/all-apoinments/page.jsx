@@ -1,6 +1,6 @@
 "use client"
 import ViewBtn from '@/components/ViewBtn';
-import GetAllData from '@/lib/GetAllData';
+import { authClient } from '@/lib/auth-client';
 import Image from 'next/image';
 import React, { use, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -11,14 +11,25 @@ const AllAppointment = () => {
    const { register, handleSubmit, watch, formState: { errors } } = useForm()
     const [docs, setDocs] = useState([])
       const [searched , setSearched] = useState("");
-              useEffect(()=>{
-            GetAllData().then(response => response) .then(data =>  setDocs(data))
-          }, [])
-         
+             const getDatas = async()=>{
+              const {data} = await authClient.token()
+              
+               const res = await fetch("http://localhost:5000/allDoctors",
+                {
+                        headers : {
+                            authorization : `Bearer ${data?.token}`,
+                        }
+                    }
+               )
+               const docsData = await res.json()
+               setDocs(docsData)
+             }
        useEffect(()=>{
          setSearched(watch("value"));
        },[watch("value")])
-         
+         useEffect(()=>{
+          getDatas()
+         },[])
     return (
         <div className='py-5'>
            <div className='space-y-5'>

@@ -17,12 +17,14 @@ const BookBtn = ({data}) => {
   const { data: session } = authClient.useSession();
    const user =session?.user;
        const onSubmit =async(datal)=>{
+         const {data} = await authClient.token()
                   document.getElementById('my_modal_3').close()
 
           const res = await fetch("http://localhost:5000/appoinments",{
             method: "POST",
             headers: {
-              'content-type' : 'application/json'
+              'content-type' : 'application/json',
+               authorization : `Bearer ${data?.token}`,
             },
             body: JSON.stringify(datal)
           })
