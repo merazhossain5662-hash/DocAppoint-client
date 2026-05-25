@@ -3,6 +3,7 @@ import { authClient } from '@/lib/auth-client';
 import { redirect, useRouter } from 'next/navigation';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { Bounce, toast } from 'react-toastify';
 
 const UpdateUser = ({user}) => {
     const router =useRouter()
@@ -24,6 +25,17 @@ reset();
   
       document.getElementById('my_modal_3').close()
       router.refresh()
+         toast.success('Profile Updated succesfully', {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      transition: Bounce,
+      });
     }
     // onClick={handleUpdateUser}
     return (

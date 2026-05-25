@@ -3,6 +3,12 @@ import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 import React from 'react';
 
+
+export const metadata = {
+  title: "DocAppoint - User Dashboard",
+  description: "Access your personal dashboard to manage your appointments, profile, and account settings. This secure area provides a complete overview of your healthcare activities, helping you stay organized and in control of your medical journey.",
+};
+
 const DashboardPage = async() => {
       const session = await auth.api.getSession({
         headers: await headers() 

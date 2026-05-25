@@ -5,6 +5,7 @@ import { redirect } from 'next/navigation';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { FaGoogle } from 'react-icons/fa';
+import { Bounce, toast } from 'react-toastify';
 
 const RegisterPage = () => {
    const {
@@ -18,6 +19,17 @@ const RegisterPage = () => {
        const data = await authClient.signIn.social({
         provider: "google",
       });
+         toast.success('Registation succesfull', {
+position: "top-center",
+autoClose: 5000,
+hideProgressBar: false,
+closeOnClick: false,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "colored",
+transition: Bounce,
+});
      }
          
       const handleRegisterSubmit = async(datal)=>{
@@ -30,10 +42,30 @@ const RegisterPage = () => {
     callbackURL: "/",
 });
 
- if(error){
- alert(error.message)
+  if(error){
+ toast.error(error.message, {
+position: "top-center",
+autoClose: 5000,
+hideProgressBar: false,
+closeOnClick: false,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "colored",
+transition: Bounce,
+});
  }else if(data){
-      alert("succecfull");
+      toast.success('Registation succesfull', {
+position: "top-center",
+autoClose: 5000,
+hideProgressBar: false,
+closeOnClick: false,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "colored",
+transition: Bounce,
+});
       redirect("/login")
  }
       }
@@ -57,8 +89,15 @@ const RegisterPage = () => {
   {errors.email && <span className="text-red-700 text-md">This field is required.</span>}
 
   <label className="label text-lg text-black font-medium">Password</label>
-  <input type="password" name='password' {...register("password",  { required: true })} className="input w-full rounded-2xl bg-base-200" placeholder="Add your password" />
-{errors.password && <span className="text-red-700 text-md">This field is required.</span>}
+  <input type="password" name='password' {...register("password",  { required:"Password is required" ,minLength: {
+            value: 6,
+            message: "Minimum length is 6 characters"
+          },
+          pattern: {
+            value: /^(?=.*[a-z])(?=.*[A-Z]).+$/,
+            message:"Must contain at least 1 uppercase and 1 lowercase letter"
+          }})} className="input w-full rounded-2xl bg-base-200" placeholder="Add your password" />
+{errors.password && <span className="text-red-700 text-md">{errors.password.message}</span>}
 
   <div>
 <p className='flex items-center text-sm gap-1'><input  type="checkbox" {...register("checkbox",  { required: true })} name="checkbox"   />Accept <span className='font-extrabold'>Term & Conditions</span></p>
@@ -67,8 +106,8 @@ const RegisterPage = () => {
 
   <button type='submit' className="btn btn-neutral rounded-2xl text-xl mt-4">Register</button>
    <div className="divider">OR</div>
-   <p className=' font-light text-sm'>Already Have An Account ? <Link href={"/login"} className=' text-[#1c7474] font-medium hover:underline'>Login</Link></p>  
-<button onClick={handleGoogleSingin} className="btn text-[#0a627c] btn-outline items-center gap-2 w-full rounded-2xl text-lg py-4 font-semibold mt-4"><FaGoogle /> Continue with Google</button>
+   <p className=' font-light text-sm'>Already Have An Account ? <Link href={"/login"} className=' text-green-700 font-medium hover:underline'>Login</Link></p>  
+<button onClick={handleGoogleSingin} className="btn text-green-900 btn-outline items-center gap-2 w-full rounded-2xl text-lg py-4 font-semibold mt-4"><FaGoogle /> Continue with Google</button>
 </fieldset>
            </form>
         </div>

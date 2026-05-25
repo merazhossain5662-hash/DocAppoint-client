@@ -9,6 +9,30 @@ import { LiaMoneyCheckAltSolid } from 'react-icons/lia';
 import { LuClock3 } from 'react-icons/lu';
 import { RiEmotionHappyFill } from 'react-icons/ri';
 
+export async function generateMetadata({ params }) {
+    const {token} = await auth.api.getToken({
+            headers: await headers() 
+        });
+  const {id} = await params; 
+  
+  const res = await fetch(`http://localhost:5000/allDoctors/${id}`,
+    {
+            headers : {
+                authorization : `Bearer ${token}`,
+            }
+        }
+  )
+  const data = await res.json();
+  console.log(data);
+  
+     
+  return {
+    title: `DocAppoint - ${data?.name}`,
+    description: data?.description,
+  }
+}
+
+
 const DetailsPage = async({params}) => {
      const {token} = await auth.api.getToken({
             headers: await headers() 

@@ -7,6 +7,7 @@ import Link from 'next/link';
 import Navlink from './Navlink';
 import { authClient } from '@/lib/auth-client';
 import { IoLogOutOutline } from 'react-icons/io5';
+import { Bounce, toast } from 'react-toastify';
 
 const Navbar = () => {
   
@@ -57,7 +58,20 @@ const { data: session, isPending } = authClient.useSession();
      <Image src={user?.image || user?.name.charAt(0)} width={100} height={100}  alt={user?.name}></Image>
   </div>
 </div>
-  <Link onClick={async ()=> await authClient.signOut()} href={"/"}  className="btn border-none bg-gradient-to-r from-[#0D530E] text-white rounded-2xl  to-[#328E6E]"><IoLogOutOutline /> Logout</Link>
+  <Link onClick={async ()=> {
+    await authClient.signOut();
+       toast('User Logged Out', {
+position: "top-center",
+autoClose: 5000,
+hideProgressBar: false,
+closeOnClick: false,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "colored",
+transition: Bounce,
+});
+    }} href={"/"}  className="btn border-none bg-gradient-to-r from-[#0D530E] text-white rounded-2xl  to-[#328E6E]"><IoLogOutOutline /> Logout</Link>
          </div> : <div className='flex items-center gap-2'>
            <Link href={"/login"}>Login</Link>
     <Link href={"/register"} className="btn border-none bg-gradient-to-r from-[#0D530E] text-white rounded-2xl  to-[#328E6E]">Register</Link>

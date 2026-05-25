@@ -5,6 +5,7 @@ import Link from 'next/link';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { FaGoogle } from 'react-icons/fa';
+import { Bounce, toast } from 'react-toastify';
 // import { toast, Zoom } from 'react-toastify';
 
 const loginPage = () => {
@@ -29,9 +30,29 @@ const loginPage = () => {
 
 
  if(error){
- alert(error.message)
+ toast.error(error.message, {
+position: "top-center",
+autoClose: 5000,
+hideProgressBar: false,
+closeOnClick: false,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "colored",
+transition: Bounce,
+});
  }else if(data){
-      alert("succecfull");
+      toast.success('Login succesfull', {
+position: "top-center",
+autoClose: 5000,
+hideProgressBar: false,
+closeOnClick: false,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "colored",
+transition: Bounce,
+});
       redirect("/")
  }
 }
@@ -39,6 +60,17 @@ const loginPage = () => {
 const handleGoogleSingin= async()=>{
    const data = await authClient.signIn.social({
     provider: "google",
+  });
+     toast.success('Login succesfull', {
+  position: "top-center",
+  autoClose: 5000,
+  hideProgressBar: false,
+  closeOnClick: false,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  theme: "colored",
+  transition: Bounce,
   });
  }
     return (
@@ -64,12 +96,12 @@ Discover new reads, save your favorites, and manage your reading journey—all i
           <label className="label text-xl text-black font-medium">Password</label>
           <input type="password" name='password' {...register("password",  { required: true })} className="input w-full rounded-2xl bg-base-200" placeholder="Password" />
           {errors.password && <span className="text-red-700 text-md">This field is required.</span>}
-<p className=' font-light text-sm'>Don’t Have An Account ? <Link href={"/register"} className=' text-[#1c7474] font-medium hover:underline'> Register </Link></p>  
-        <button type='submit' className="btn  bg-[#0a627c] text-white rounded-2xl text-lg font-semibold py-2 my-4">Login</button>
+<p className=' font-light text-sm'>Don’t Have An Account ? <Link href={"/register"} className=' text-green-800 font-medium hover:underline'> Register </Link></p>  
+        <button type='submit' className="btn  bg-linear-to-r from-[#0D530E] to-[#328E6E] text-white rounded-2xl text-lg font-semibold py-2 my-4">Login</button>
         <div className="divider">OR</div>
      
         </fieldset>
-        <button onClick={handleGoogleSingin} className="btn text-[#0a627c] btn-outline items-center gap-2 w-full rounded-2xl text-lg py-4 font-semibold mt-4"><FaGoogle /> Login with Google</button>
+        <button onClick={handleGoogleSingin} className="btn text-green-800 btn-outline items-center gap-2 w-full rounded-2xl text-lg py-4 font-semibold mt-4"><FaGoogle /> Login with Google</button>
       <div className='border-t border-gray-300'>
       </div>
        </form>

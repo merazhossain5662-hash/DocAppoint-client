@@ -8,15 +8,8 @@ import { auth } from '@/lib/auth';
 import { headers } from 'next/headers';
 
 const TopDocs = async() => {
-  const {token} = await auth.api.getToken({
-          headers: await headers() 
-      });
-    const res = await fetch("http://localhost:5000/allDoctors",
-      {
-              headers : {
-                  authorization : `Bearer ${token}`,
-              }
-          }
+
+    const res = await fetch("http://localhost:5000/allDoctors"
     )
                const docs = await res.json()
     

@@ -5,6 +5,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { MdCancel } from 'react-icons/md';
 import { TfiPencilAlt } from 'react-icons/tfi';
+import { Bounce, toast } from 'react-toastify';
 
 const UpdateAppoinment = ({data}) => {
      const modalId = `my_modal_${data._id}`    
@@ -28,6 +29,17 @@ const UpdateAppoinment = ({data}) => {
           })
           document.getElementById(modalId).close();
            router.refresh()
+             toast.success('Appoinment Updated succesfully', {
+position: "top-center",
+autoClose: 5000,
+hideProgressBar: false,
+closeOnClick: false,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "colored",
+transition: Bounce,
+});
                        }
     return (
        <div>

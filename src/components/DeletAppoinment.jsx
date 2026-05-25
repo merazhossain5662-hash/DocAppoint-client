@@ -3,6 +3,7 @@ import { authClient } from '@/lib/auth-client';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 import { FaRegTrashAlt } from 'react-icons/fa';
+import { Bounce, toast } from 'react-toastify';
 
 const DeletAppoinment = ({data}) => {
   console.log(data._id);
@@ -19,6 +20,17 @@ const DeletAppoinment = ({data}) => {
     });
     document.getElementById('my_modal_1').close();
        router.refresh()
+        toast.info('Appoinment Deleted succesfully', {
+position: "top-center",
+autoClose: 5000,
+hideProgressBar: false,
+closeOnClick: false,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "colored",
+transition: Bounce,
+});
     };
     return (
        <div>
