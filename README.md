@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+#  DocAppoint
 
-## Getting Started
+DocAppoint is a modern web application designed to simplify doctor appointment booking and management. It provides an intuitive interface for users to schedule, update, and manage appointments efficiently.
 
-First, run the development server:
+## Live Link
+  - ds 
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Features
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- 📅 Easy appointment booking with real-time data handling  
+- 🔐 Secure user authentication and session management  
+- 🧑‍⚕️ User dashboard to manage all appointments in one place  
+- ✏️ Update and cancel appointments بسهولة (easily)  
+- ⚡ Fast and responsive UI built with modern technologies  
+- 🌐 SEO-friendly structure for better visibility  
+- 📊 Dynamic data rendering with optimized performance  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🛠️ Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+- **Frontend:** Next.js, React, Tailwind CSS, DaisyUI  
+- **Backend:** Node.js, MongoDB  
+- **Authentication:** Better Auth  
+- **Form Handling:** React Hook Form  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
+## 🔑 Usage
+- Register or log in to your account
+- Book a doctor appointment
+- View all appointments in dashboard
+- Update or cancel appointments anytime
+---
 
-## Deploy on Vercel
+---
+## 👨‍💻 Author
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+ - Meraz Hossain
+---
