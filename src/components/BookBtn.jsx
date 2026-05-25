@@ -17,8 +17,7 @@ const BookBtn = ({data}) => {
   const { data: session } = authClient.useSession();
    const user =session?.user;
        const onSubmit =async(datal)=>{
-        console.log(datal);
-          document.getElementById('my_modal_3').close()
+                  document.getElementById('my_modal_3').close()
 
           const res = await fetch("http://localhost:5000/appoinments",{
             method: "POST",

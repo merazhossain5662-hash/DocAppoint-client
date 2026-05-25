@@ -12,15 +12,15 @@ const DeletAppoinment = ({data}) => {
               'content-type' : 'application/json'
             }
     });
-    document.getElementById('my_modal_3').close();
+    document.getElementById('my_modal_1').close();
        router.refresh()
     };
     return (
-       <>
+       <div>
        
-             <button onClick={()=>document.getElementById('my_modal_3').showModal()} className='btn btn-sm rounded-xl bg-red-500 text-white'><FaRegTrashAlt />Delete</button>
+             <button onClick={()=>document.getElementById('my_modal_1').showModal()} className='btn btn-sm rounded-xl bg-red-500 text-white'><FaRegTrashAlt />Delete</button>
        
-       <dialog id="my_modal_3" className="modal">
+       <dialog id="my_modal_1" className="modal">
   <div className="modal-box">
     <form method="dialog">
       {/* if there is a button in form, it will close the modal */}
@@ -31,7 +31,7 @@ const DeletAppoinment = ({data}) => {
     <button onClick={handleDelete} className='btn btn-sm rounded-xl bg-red-500 text-white'>Yes, Delete</button>
   </div>
 </dialog>
-       </>
+       </div>
      
              
     );

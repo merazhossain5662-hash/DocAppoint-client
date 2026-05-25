@@ -7,6 +7,7 @@ import { LuUser } from 'react-icons/lu';
 import { MdOutlineDateRange } from 'react-icons/md';
 import { TfiPencilAlt } from 'react-icons/tfi';
 import DeletAppoinment from './DeletAppoinment';
+import UpdateAppoinment from './UpdateAppoinment';
 const Appoinments = ({datas}) => {
 
 
@@ -53,8 +54,8 @@ const Appoinments = ({datas}) => {
                 : <p></p>
              }
 
-             <div className='mt-4 space-x-2'>
-                <button className='btn bg-[#e6fdf3] dark:bg-base-300 btn-sm rounded-xl'><TfiPencilAlt />Update</button>
+             <div className='flex items-center mt-4 space-x-2'>
+             <UpdateAppoinment data={data}></UpdateAppoinment>
                <DeletAppoinment data={data}></DeletAppoinment>
              </div>
              </div>
