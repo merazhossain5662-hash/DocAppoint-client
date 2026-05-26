@@ -1,4 +1,6 @@
 import AllAppointment from "@/components/AllAppoinmentsPage"
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
 
 
 export async function generateMetadata() {
@@ -8,6 +10,11 @@ export async function generateMetadata() {
   }
 }
 
-export default function page(){
+export default async function page(){
+  const {token} = await auth.api.getToken({
+              headers: await headers() 
+          });
+          console.log(token);
+          
   return <AllAppointment></AllAppointment>
 }
