@@ -3,7 +3,7 @@
 DocAppoint is a modern web application designed to simplify doctor appointment booking and management. It provides an intuitive interface for users to schedule, update, and manage appointments efficiently.
 
 ## Live Link
-  *[Italic Link](https://docappoint-chi.vercel.app)*
+  *[DocAppoint](https://docappoint-chi.vercel.app)*
 
 ---
 
