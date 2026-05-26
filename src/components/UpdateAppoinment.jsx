@@ -19,7 +19,7 @@ const UpdateAppoinment = ({data}) => {
 
                        const onSubmit =async(datal)=>{
                          const {data: tokenData} = await authClient.token()
-                           const res = await fetch(`http://localhost:5000/appoinments/${data._id}`,{
+                           const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URI}/appoinments/${data._id}`,{
             method: "PATCH",
             headers: {
               'content-type' : 'application/json',

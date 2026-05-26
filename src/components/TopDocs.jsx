@@ -9,7 +9,7 @@ import { headers } from 'next/headers';
 
 const TopDocs = async() => {
 
-    const res = await fetch("http://localhost:5000/allDoctors"
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URI}/allDoctors`
     )
                const docs = await res.json()
     

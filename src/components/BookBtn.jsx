@@ -21,7 +21,7 @@ const BookBtn = ({data}) => {
          const {data} = await authClient.token()
                   document.getElementById('my_modal_3').close()
 
-          const res = await fetch("http://localhost:5000/appoinments",{
+          const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URI}/appoinments`,{
             method: "POST",
             headers: {
               'content-type' : 'application/json',

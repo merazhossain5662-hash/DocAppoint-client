@@ -19,7 +19,7 @@ const DashboardPage = async() => {
     
 
     const user = session?.user
-    const res= await fetch(`http://localhost:5000/appoinments/${user?.email}`,{
+    const res= await fetch(`${process.env.NEXT_PUBLIC_SERVER_URI}/appoinments/${user?.email}`,{
         headers : {
             authorization : `Bearer ${token}`,
         }

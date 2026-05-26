@@ -11,7 +11,7 @@ const DeletAppoinment = ({data}) => {
       const router =useRouter()
     const handleDelete =async()=>{
        const {data: tokenData} = await authClient.token()
-       const res = await fetch(`http://localhost:5000/appoinments/${data._id}`,{
+       const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URI}/appoinments/${data._id}`,{
             method: "DELETE",
             headers: {
               'content-type' : 'application/json',
